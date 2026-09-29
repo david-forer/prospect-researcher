@@ -1,0 +1,22 @@
+# Your business context. Only the examples are public.
+/context/*
+!/context/*.example.md
+
+# Prospect data and results. Real people's names and emails never go in the repo.
+/input/*
+!/input/.gitkeep
+!/input/example.csv
+/output/*
+!/output/.gitkeep
+
+# Local notes and history
+CLAUDE.local.md
+memory.md
+/directives/
+
+# Python
+__pycache__/
+*.pyc
+
+# Knowledge-graph tool output
+graphify-out/
