@@ -21,6 +21,7 @@ def main():
         print("Copy the matching *.example.md files in context/ and fill them in first.")
         raise SystemExit(1)
     text = SRC.read_text(encoding="utf-8").replace("{{CONTEXT_DIR}}", str(CONTEXT))
+    text = text.replace("{{CRAWLED_DIR}}", str(ROOT / "input" / "crawled"))
     DEST.parent.mkdir(parents=True, exist_ok=True)
     DEST.write_text(text, encoding="utf-8")
     print(f"Installed {DEST}")

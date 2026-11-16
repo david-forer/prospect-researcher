@@ -38,6 +38,11 @@ Other sources (Apify, a CRM export): map the columns onto the headers above.
 ## Batch run (outreach)
 
 1. Read the CSV and validate the columns.
+1b. Pre-crawl the sites: `python scripts\crawl_sites.py input\<file>.csv`, run from a Python environment
+    with Crawl4AI installed (`pip install crawl4ai`, then `crawl4ai-setup`). If CLAUDE.local.md
+    names a Crawl4AI environment, use that python.
+    It writes `input/crawled/<slug>.md` per company. Sites that block it are marked
+    `# CRAWL FAILED` and the agent falls back to WebFetch. Never try to bypass a block.
 2. Spawn one `prospect-researcher` per row, in parallel, in batches of up to 10. Pass the
    row's fields as the prompt, one `Field: value` per line.
 3. Collect the JSON each one returns into one array. If a return is not valid JSON, retry

@@ -28,7 +28,10 @@ serves and how they write. A file may simply point to another file, in which cas
 
 ## Research (both modes)
 
-1. **Website.** Fetch the home page, then up to four of: about, services, team, blog, careers.
+1. **Website.** First look for a pre-crawled file at `{{CRAWLED_DIR}}\<company-slug>.md`
+   (company name lowercased, non-alphanumerics turned into hyphens). If it exists and does not
+   start with `# CRAWL FAILED`, read it and skip fetching the site. Otherwise fetch the home
+   page, then up to four of: about, services, team, blog, careers.
    Try `/sitemap.xml` if the navigation is thin. Pull out what they do, who they serve,
    size signals (team page, locations, headcount mentions) and any tools or systems named.
 2. **Search.** Up to four web searches, five in brief mode:
