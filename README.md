@@ -40,7 +40,8 @@ about as long as one. Each copy:
 
 1. Reads your context files: who your ideal customer is, what you sell, and how you write.
 2. Fetches the prospect's home page plus up to four inner pages, and the sitemap when the
-   navigation is thin.
+   navigation is thin. On a batch, `crawl_sites.py` can crawl every site first with Crawl4AI,
+   so each copy reads saved pages. A site that blocks the crawler falls back to a normal fetch.
 3. Runs four or five web searches for news, hiring, the contact's background and headcount,
    plus reviews in brief mode.
 4. Checks any size or revenue data you passed in against what it found, and says when they
@@ -60,6 +61,7 @@ search snippets and is marked as approximate.
 - [Claude Code](https://claude.com/claude-code)
 - Python 3.10 or newer, with `openpyxl` for the spreadsheet
 - Optional: a Vibe Prospecting account for building lists
+- Optional: Crawl4AI (`pip install crawl4ai`, then `crawl4ai-setup`) to pre-crawl sites on a batch
 
 It runs on your Claude Code plan. There is no separate API key and no paid search service.
 
@@ -107,7 +109,7 @@ come from, so put in how you found them or what they said.
 ```
 agents/     the agent definition, installed to ~/.claude/agents
 context/    your ideal customer, offer and voice (examples are public, yours stay local)
-scripts/    install, Vibe Prospecting import, spreadsheet builder
+scripts/    install, Vibe Prospecting import, site pre-crawl, spreadsheet builder
 input/      CSVs to research
 output/     spreadsheets, JSON records and briefs
 CLAUDE.md   how Claude Code runs a batch
